@@ -1,0 +1,41 @@
+{% extends 'book/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+
+    <h1>List of all Authors</h1>
+
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Patronymic</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% if authors %}
+        {% for el in authors %}
+                  <tr>
+                    <th scope="row">{{el.id}}</th>
+                    <td>{{el.name}}</td>
+                    <td>{{el.surname}}</td>
+                    <td>{{el.patronymic}}</td>
+                  </tr>
+             {% endfor %}
+    {% else %}
+        <p>Sorry, there is no any author in our list...</p>
+    {% endif %}
+
+
+  </tbody>
+</table>
+
+
+{% endblock %}

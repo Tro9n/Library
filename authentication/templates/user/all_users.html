@@ -1,0 +1,53 @@
+{% extends 'book/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+
+{% block content %}
+
+    <h1>List of all Users</h1>
+
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First name</th>
+      <th scope="col">Middle name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">Updated at</th>
+      <th scope="col">Created at</th>
+      <th scope="col">Role</th>
+      <th scope="col">is active</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% if users %}
+        {% for el in users %}
+                  <tr>
+                    <th scope="row">{{el.id}}</th>
+                    <td>{{el.first_name}}</td>
+                    <td>{{el.middle_name}}</td>
+                    <td>{{el.last_name}}</td>
+                    <td>{{el.email}}</td>
+                    <td>{{el.password}}</td>
+                    <td>{{el.updated_at}}</td>
+                    <td>{{el.created_at}}</td>
+                    <td>{{el.role}}</td>
+                    <td>{{el.is_active}}</td>
+                  </tr>
+             {% endfor %}
+    {% else %}
+        <p>Sorry, there is no any user in our list...</p>
+    {% endif %}
+
+
+  </tbody>
+</table>
+
+
+{% endblock %}
